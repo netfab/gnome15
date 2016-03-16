@@ -1,0 +1,191 @@
+# If you want to use this file with vim and the project plugin, you must
+# export GNOME15_GIT variable into your environment. Example below.
+#
+# $ grep -B 1 GNOME15 ~/.bashrc 
+# # path to my gnome15 git directory
+# export GNOME15_GIT="~/dev2/gnome15"
+
+
+gnome15=$GNOME15_GIT CD=. {
+	configure.ac
+	Makefile.am
+	macros=m4/ {
+		ax_python_devel.m4
+		ax_python_module.m4
+	}
+	src=src/ {
+		Makefile.am
+		gnome15=gnome15 {
+			Makefile.am
+			__init__.py
+			colorpicker.py
+			dbusmenu.py
+			g15accounts.py
+			g15actions.py
+			g15config.py
+			g15dbus.py
+			g15dconf.py
+			g15debug.py
+			g15desktop.py
+			g15devices.py
+			g15driver.py
+			g15drivermanager.py
+			g15exceptions.py
+			g15globals.py.in
+			g15gtk.py
+			g15keyboard.py
+			g15keyio.py
+			g15locale.py
+			g15logging.py
+			g15macroeditor.py
+			g15network.py
+			g15notify.py
+			g15plugin.py
+			g15pluginmanager.py
+			g15profile.py
+			g15screen.py
+			g15service.py
+			g15system.py
+			g15text.py
+			g15theme.py
+			g15top.py
+			g15uinput.py
+			g15upgrade.py
+			g15util.py
+			lcdsink.py
+			objgraph.py
+			drivers=drivers/ {
+				Makefile.am
+				__init__.py
+				driver_g15direct.py
+				driver_g19direct.py
+				driver_g930.py
+				driver_gtk.py
+				driver_kernel.py
+				driver_mx5500.py
+				fb.py
+				pylibg15.py
+			}
+			util=util/ {
+				Makefile.am
+				__init__.py
+				g15cairo.py
+				g15convert.py
+				g15gconf.py
+				g15icontools.py
+				g15markup.py
+				g15os.py
+				g15pythonlang.py
+				g15scheduler.py
+				g15svg.py
+				g15uigconf.py
+				jobqueue.py
+			}
+		}
+		plugins=plugins/ {
+			Makefile.am
+			background
+			backlight
+			cairo-clock
+			cal
+			cal-evolution
+			cal-google
+			clock
+			debug=debug/ {
+				Makefile.am
+				debug.py
+				default=default/ {
+					Makefile.am
+				}
+			}
+			display
+			fx
+			g15daemon-server
+			game-nexuiz
+			google-analytics
+			im
+			impulse15=impulse15/ {
+			}
+			indicator-messages
+			keyhelp
+			lcdbiff
+			lcdshot
+			lens=lens/ {
+				Makefile.am
+				lens.py
+			}
+			macro-recorder
+			macros
+			mediaplayer=mediaplayer/ {
+				Makefile.am
+				gtkplayer.py
+				mediaplayer.py
+				oldvideoplayer.py
+				default=default/ {
+					Makefile.am
+				}
+			}
+			menu
+			mounts
+			mpris
+			nm
+			notify-lcd
+			notify-lcd2=notify-lcd2/ {
+				Makefile.am
+				notify-lcd2.py
+				default=default/ {
+					Makefile.am
+				}
+			}
+			panel
+			pommodoro
+			ppastats=ppastats/ {
+				Makefile.am
+				ppastats.py
+				default=default/ {
+					Makefile.am
+				}
+			}
+			processes
+			profiles
+			rss
+			screensaver
+			sense
+			stopwatch
+			sysmon
+			tails=tails/ {
+				LICENSE
+				Makefile.am
+				README
+				tails.py
+				default=default/ {
+					Makefile.am
+				}
+				tailer=tailer/ {
+					Makefile.am
+					__init__.py
+				}
+			}
+			things
+			trafficstats
+			tweak
+			voip
+			voip-mumble
+			voip-teamspeak3=voip-teamspeak3/ {
+				Makefile.am
+				test.py
+				voip-teamspeak3.py
+				ts3=ts3/ {
+					Makefile.am
+					__init__.py
+					message.py
+				}
+			}
+			volume
+			weather
+			weather-noaa
+			weather-yahoo
+			webkitbrowser
+		}
+	}
+}
