@@ -187,5 +187,19 @@ gnome15=$GNOME15_GIT CD=. {
 			weather-yahoo
 			webkitbrowser
 		}
+		scripts=scripts/ {
+			Makefile.am
+			evtest
+			g15-config
+			g15-desktop-service
+			g15-diag
+			g15-indicator
+			g15-launch
+			g15-support-dump
+			g15-system-service
+			g15-systemtray
+			lg4l-image
+			libg15test
+		}
 	}
 }
