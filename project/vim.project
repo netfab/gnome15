@@ -89,7 +89,11 @@ gnome15=$GNOME15_GIT CD=. {
 			cairo-clock
 			cal
 			cal-evolution
-			cal-google
+			cal-google=cal-google/ {
+				Makefile.am
+				cal-google.py
+				iso8601.py
+			}
 			clock
 			debug=debug/ {
 				Makefile.am
