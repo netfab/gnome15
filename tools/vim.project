@@ -1,6 +1,7 @@
 # See README.md
 
 gnome15=$GNOME15_GIT CD=. {
+	.gitignore
 	configure.ac
 	Makefile.am
 	VERSION
