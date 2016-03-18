@@ -21,10 +21,19 @@ all-local:
 			msgfmt $$M_PO --output-file $$M_LOCALE/LC_MESSAGES/$$LL; \
 		done; \
 	done
-	
+
 install-exec-hook:
 	for M_LOCALE in @ENABLED_LOCALES@; do \
 		mkdir -p $(DESTDIR)$(datadir)/gnome15/i18n; \
 		cp -pR $$M_LOCALE $(DESTDIR)$(datadir)/gnome15/i18n; \
 	done
-	
+
+uninstall-hook:
+	for M_LOCALE in @ENABLED_LOCALES@; do \
+		rm -fv $(DESTDIR)$(datadir)/gnome15/i18n/$$M_LOCALE/LC_MESSAGES/*.mo; \
+	done
+
+clean-local:
+	for M_LOCALE in @ENABLED_LOCALES@; do \
+		rm -fv $$M_LOCALE/LC_MESSAGES/*.mo; \
+	done

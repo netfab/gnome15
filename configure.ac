@@ -186,7 +186,7 @@ AS_IF([test -z "${FIXED_SIZE_FONT}"],
 dnl udev file path and settings
 AC_ARG_VAR(UDEV_RULES_PATH, [Path for udev rules. Defaults to /lib/udev/rules.d])
 AS_IF([test -z "${UDEV_RULES_PATH}"],
-	AC_SUBST([UDEV_RULES_PATH], [/lib/udev/rules.d]))
+	AC_SUBST([UDEV_RULES_PATH], [${prefix}/lib/udev/rules.d]))
 AC_ARG_VAR(DEVICEGROUP, [Group that the devices will be owned by. Defaults to plugdev])
 AS_IF([test -z "${DEVICEGROUP}"],
 	AC_SUBST([DEVICEGROUP], [plugdev]))
