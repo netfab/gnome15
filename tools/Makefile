@@ -1,6 +1,6 @@
 SHELL = /bin/sh
 top_srcdir = ..
-# you must export GNOME15_GIT env variable
+# See README.md
 build_dir = $(GNOME15_GIT)/build
 LANG=C
 

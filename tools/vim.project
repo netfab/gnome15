@@ -1,10 +1,4 @@
-# If you want to use this file with vim and the project plugin, you must
-# export GNOME15_GIT variable into your environment. Example below.
-#
-# $ grep -B 1 GNOME15 ~/.bashrc 
-# # path to my gnome15 git directory
-# export GNOME15_GIT="~/dev2/gnome15"
-
+# See README.md
 
 gnome15=$GNOME15_GIT CD=. {
 	configure.ac
@@ -205,5 +199,9 @@ gnome15=$GNOME15_GIT CD=. {
 			lg4l-image
 			libg15test
 		}
+	}
+	tools=tools/ {
+		Makefile
+		README.md
 	}
 }
