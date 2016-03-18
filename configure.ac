@@ -1,4 +1,8 @@
-AC_INIT([gnome15], [0.10.2], [bugs@gnome15.org])
+dnl Process this file with autoconf to produce a configure script.
+
+m4_define(GNOME15_VERSION,regexp(m4_include(VERSION),[version \([-.0-9A-Za-z]+\)],[\1]))
+
+AC_INIT([gnome15], [GNOME15_VERSION], [bugs@gnome15.org])
 AC_CONFIG_SRCDIR([src/gnome15/g15service.py])
 AM_INIT_AUTOMAKE([tar-ustar])
 AM_MAINTAINER_MODE

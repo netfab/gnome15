@@ -3,6 +3,7 @@
 gnome15=$GNOME15_GIT CD=. {
 	configure.ac
 	Makefile.am
+	VERSION
 	macros=m4/ {
 		ax_python_devel.m4
 		ax_python_module.m4
