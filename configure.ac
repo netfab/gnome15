@@ -4,10 +4,10 @@ m4_define(GNOME15_VERSION,regexp(m4_include(VERSION),[version \([-.0-9A-Za-z]+\)
 
 AC_INIT([gnome15], [GNOME15_VERSION], [bugs@gnome15.org])
 AC_CONFIG_SRCDIR([src/gnome15/g15service.py])
+AC_CONFIG_MACRO_DIR([m4])
+AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([tar-ustar])
 AM_MAINTAINER_MODE
-
-AC_CONFIG_MACRO_DIR([m4])
 
 dnl
 dnl Dependencies
