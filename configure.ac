@@ -187,10 +187,18 @@ AC_ARG_VAR(FIXED_SIZE_FONT, [Font to use for fixed fonts. Defaults to Fixed])
 AS_IF([test -z "${FIXED_SIZE_FONT}"],
 	AC_SUBST([FIXED_SIZE_FONT], [Fixed]))
 
-dnl udev file path and settings
-AC_ARG_VAR(UDEV_RULES_PATH, [Path for udev rules. Defaults to /lib/udev/rules.d])
-AS_IF([test -z "${UDEV_RULES_PATH}"],
-	AC_SUBST([UDEV_RULES_PATH], [${prefix}/lib/udev/rules.d]))
+dnl Udev rules installation path prefix
+AC_ARG_ENABLE([udev-rules-prefix],
+	[AS_HELP_STRING([--enable-udev-rules-prefix],
+		[Install udev rules into PREFIX/lib instead of /lib])],
+	[case "${enableval}" in
+		yes) udev_rules_prefix=yes ;;
+		no)  udev_rules_prefix=no ;;
+		*)   AC_MSG_ERROR([bad value ${enableval} for --enable-udev-rules-prefix]) ;;
+	esac],
+	[udev_rules_prefix=yes])
+AM_CONDITIONAL([ENABLE_UDEV_RULES_PREFIX], [test x$udev_rules_prefix = xyes])
+
 AC_ARG_VAR(DEVICEGROUP, [Group that the devices will be owned by. Defaults to plugdev])
 AS_IF([test -z "${DEVICEGROUP}"],
 	AC_SUBST([DEVICEGROUP], [plugdev]))
@@ -1380,7 +1388,6 @@ AS_ECHO("")
 AS_ECHO("Other Configuration")
 AS_ECHO("-------------------")
 AS_ECHO("Fixed size font name        - ${FIXED_SIZE_FONT}")
-AS_ECHO("udev rules path             - ${UDEV_RULES_PATH}")
 AS_ECHO("Device group                - ${DEVICEGROUP}")
 AS_ECHO("Device mode                 - ${DEVICEMODE}")
 AS_ECHO_N("Hotplugging support         - ")
