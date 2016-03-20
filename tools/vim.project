@@ -7,6 +7,12 @@ gnome15=$GNOME15_GIT CD=. {
 	VERSION
 	data=data/ {
 		Makefile.am
+		autostart=autostart/ {
+			Makefile.am
+			g15-indicator.desktop.in
+			g15-systemtray.desktop.in
+			gnome15.desktop.in
+		}
 		udev=udev/ {
 			Makefile.am
 			99-gnome15-kernel.rules.in
@@ -156,7 +162,13 @@ gnome15=$GNOME15_GIT CD=. {
 			processes
 			profiles
 			rss
-			screensaver
+			screensaver=screensaver/ {
+				Makefile.am
+				screensaver.py
+				default=default/ {
+					Makefile.am
+				}
+			}
 			sense
 			stopwatch
 			sysmon
