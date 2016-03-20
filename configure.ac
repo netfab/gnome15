@@ -199,12 +199,21 @@ AC_ARG_ENABLE([udev-rules-prefix],
 	[udev_rules_prefix=yes])
 AM_CONDITIONAL([ENABLE_UDEV_RULES_PREFIX], [test x$udev_rules_prefix = xyes])
 
-AC_ARG_VAR(DEVICEGROUP, [Group that the devices will be owned by. Defaults to plugdev])
+dnl Input devices permissions
+AC_ARG_VAR(DEVICEGROUP, [Group that the input devices will be owned by. Defaults to plugdev])
 AS_IF([test -z "${DEVICEGROUP}"],
 	AC_SUBST([DEVICEGROUP], [plugdev]))
-AC_ARG_VAR(DEVICEMODE, [Permissions of the devices. Defaults to 0660])
+AC_ARG_VAR(DEVICEMODE, [Permissions of the input devices. Defaults to 0660])
 AS_IF([test -z "${DEVICEMODE}"],
 	AC_SUBST([DEVICEMODE], [0660]))
+
+dnl Framebuffer devices permissions
+AC_ARG_VAR(VIDEOGROUP, [Group that the framebuffer devices will be owned by. Defaults to video])
+AS_IF([test -z "${VIDEOGROUP}"],
+	AC_SUBST([VIDEOGROUP], [video]))
+AC_ARG_VAR(VIDEOMODE, [Permissions of the framebuffer devices. Defaults to 0660])
+AS_IF([test -z "${VIDEOMODE}"],
+	AC_SUBST([VIDEOMODE], [0660]))
 
 dnl Drivers
 AC_ARG_ENABLE([driver-kernel],
@@ -1388,8 +1397,10 @@ AS_ECHO("")
 AS_ECHO("Other Configuration")
 AS_ECHO("-------------------")
 AS_ECHO("Fixed size font name        - ${FIXED_SIZE_FONT}")
-AS_ECHO("Device group                - ${DEVICEGROUP}")
-AS_ECHO("Device mode                 - ${DEVICEMODE}")
+AS_ECHO("Input devices group         - ${DEVICEGROUP}")
+AS_ECHO("Input devices mode          - ${DEVICEMODE}")
+AS_ECHO("Framebuffer video group     - ${VIDEOGROUP}")
+AS_ECHO("Framebuffer video mode      - ${VIDEOMODE}")
 AS_ECHO_N("Hotplugging support         - ")
 AS_IF([test "x${HAVE_PYUDEV}" = "xno"],
      [AS_ECHO("No")],

@@ -9,6 +9,7 @@ gnome15=$GNOME15_GIT CD=. {
 		Makefile.am
 		udev=udev/ {
 			Makefile.am
+			99-gnome15-kernel.rules.in
 		}
 	}
 	macros=m4/ {
