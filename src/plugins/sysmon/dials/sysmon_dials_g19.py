@@ -14,7 +14,7 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
- import gnome15.util.g15convert as g15convert
+import gnome15.util.g15convert as g15convert
 import gnome15.util.g15cairo as g15cairo
 import os
 import rsvg
